@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,6 +22,17 @@ const Register = () => {
   });
   const [error, setError] = useState("");
   const [savePassword, setSavePassword] = useState(false);
+
+  useEffect(() => {
+    document.querySelectorAll(`input[type="password"]`).forEach((inp:HTMLInputElement) => {
+      inp.onfocus = () => {
+        inp.type = "text";
+      }
+      inp.onblur = () => {
+        inp.type = "password";
+      }
+    });
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

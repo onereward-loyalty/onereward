@@ -41,6 +41,15 @@ const Login = () => {
       setUserType(savedUserType);
       setRememberMe(true);
     }
+
+    document.querySelectorAll(`input[type="password"]`).forEach((inp:HTMLInputElement) => {
+      inp.onfocus = () => {
+        inp.type = "text";
+      }
+      inp.onblur = () => {
+        inp.type = "password";
+      }
+    });
   }, []);
 
   const handleLogin = async (e: React.FormEvent) => {

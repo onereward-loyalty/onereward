@@ -82,6 +82,15 @@ const AdminRestaurants = () => {
 
   useEffect(() => {
     fetchRestaurants();
+
+    document.querySelectorAll(`input[type="password"]`).forEach((inp:HTMLInputElement) => {
+      inp.onfocus = () => {
+        inp.type = "text";
+      }
+      inp.onblur = () => {
+        inp.type = "password";
+      }
+    });
   }, []);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
