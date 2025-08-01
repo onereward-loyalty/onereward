@@ -55,11 +55,11 @@ const RestaurantMenu = () => {
       setLoading(true);
       
       // Fetch restaurant details
-      const restaurantResponse = await axios.get(`${API_BASE_URL}/api/restaurants/${restaurantId}`);
+      const restaurantResponse = await axios.get(${API_BASE_URL}/api/restaurants/${restaurantId});
       setRestaurant(restaurantResponse.data);
       
       // Fetch menu
-      const menuResponse = await axios.get(`${API_BASE_URL}/api/customer/restaurant/${encodeURIComponent(restaurantResponse.data.name)}/menu`);
+      const menuResponse = await axios.get(${API_BASE_URL}/api/customer/restaurant/${encodeURIComponent(restaurantResponse.data.name)}/menu);
       setMenu(menuResponse.data);
       
       // Set first category as active
@@ -75,7 +75,7 @@ const RestaurantMenu = () => {
 
   const scrollToCategory = (categoryId: string) => {
     setActiveCategory(categoryId);
-    const element = document.getElementById(`category-${categoryId}`);
+    const element = document.getElementById(category-${categoryId});
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -145,14 +145,17 @@ const RestaurantMenu = () => {
             key="visit_link"
             variant={"default"}
             size="sm"
-            className={`whitespace-nowrap ${restaurant.website? "" : "hidden"}`}
+            className={whitespace-nowrap ${restaurant.website? "" : "hidden"}}
           >
             <Link to={restaurant.website ?? ""}>
               Visit Website</Link>
           </Button>
-)}
         </div>
       </div>
+
+
+
+{/*     // New code end */}
 
       {menu.length === 0 ? (
         <div className="text-center py-16">
@@ -186,7 +189,7 @@ const RestaurantMenu = () => {
           {/* Menu Categories */}
           <div className="space-y-8">
             {menu.map((category) => (
-              <div key={category._id} id={`category-${category._id}`} className="space-y-4">
+              <div key={category._id} id={category-${category._id}} className="space-y-4">
                 <div>
                   <h3 className="text-xl font-bold text-foreground">{category.name}</h3>
                   {category.description && (
@@ -233,7 +236,7 @@ const RestaurantMenu = () => {
                             {/* Option Badges */}
                             <div className="flex flex-wrap gap-1">
                               {getOptionBadges(item.options).map((badge, index) => (
-                                <Badge key={index} className={`${badge.color} text-xs`}>
+                                <Badge key={index} className={${badge.color} text-xs}>
                                   {badge.icon && <badge.icon className="h-3 w-3 mr-1" />}
                                   {badge.label}
                                 </Badge>
