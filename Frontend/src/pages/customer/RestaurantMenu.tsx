@@ -141,7 +141,7 @@ const RestaurantMenu = () => {
             <h2 className="text-2xl font-bold text-primary">{restaurant.name}</h2>
             <p className="text-sm text-muted-foreground">Menu & Offerings</p>
           </div>
-{/*           <Button
+          <Button
             key="visit_link"
             variant={"default"}
             size="sm"
@@ -149,36 +149,10 @@ const RestaurantMenu = () => {
           >
             <Link to={restaurant.website ?? ""}>
               Visit Website</Link>
-          </Button> */}
-
-          {restaurant.website?.trim() && (
-  <Button
-    key="visit_link"
-    variant="default"
-    size="sm"
-    className="whitespace-nowrap"
-    asChild
-  >
-    <a
-      href={
-        restaurant.website.startsWith("http")
-          ? restaurant.website
-          : `https://${restaurant.website}`
-      }
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Visit Website
-    </a>
-  </Button>
+          </Button>
 )}
-
         </div>
       </div>
-
-
-
-{/*     // New code end */}
 
       {menu.length === 0 ? (
         <div className="text-center py-16">
