@@ -54,6 +54,10 @@ const restaurantSchema = new mongoose.Schema(
       lowercase: true,
       trim: true,
     },
+    website: {
+      type: String,
+      trim: true,
+    },
     status: {
       type: String,
       enum: ['active', 'inactive'],

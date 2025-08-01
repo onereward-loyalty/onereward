@@ -95,7 +95,7 @@ const PersonalizedCard: React.FC<PersonalizedCardProps> = ({
   }
 
   return (
-    <div className={`relative w-full group ${className}`}>
+    <div className={`relative w-full rounded-xl group ${className}`}>
       <div
         className="aspect-[1.6/1] rounded-xl shadow-xl overflow-hidden relative border border-gray-200 transition-all duration-300 group-hover:shadow-2xl"
         style={{
@@ -117,30 +117,28 @@ const PersonalizedCard: React.FC<PersonalizedCardProps> = ({
         <div className="relative h-full p-4 flex flex-col justify-between text-black">
           {/* Top Section - Points only */}
           <div className="flex justify-end">
-            <div className="bg-white px-3 py-1.5 rounded text-sm font-bold text-gray-800 shadow-sm">
-              {userPoints} PTS
+            <div className="px-3 py-1.5 rounded-xl text-sm relative font-bold text-gray-100 drop-shadow-lg shadow-lg border border-white/20 backdrop-blur-md bg-gradient-to-br from-white/30 to-white/10">
+              <span className='relative z-10'>{userPoints} PTS</span>
             </div>
           </div>
 
           {/* Bottom Section */}
-          <div className="flex justify-between items-end">
-            <div className="space-y-2 max-w-[40%]">
-              <div className="bg-white/95 px-3 py-1.5 rounded-lg text-sm font-bold text-gray-900 shadow-md backdrop-blur-sm">
-                {restaurantName}
-              </div>
-              <div className="bg-white/95 px-3 py-1.5 rounded-lg text-sm font-bold text-gray-900 shadow-md backdrop-blur-sm">
+          <div className="flex flex-col gap-0 -m-4 justify-end items-end">
+            <div className="space-y-1 -mr-1 px-4">
+              <div className="text-2xl font-sans font-bold tracking-widest bg-gradient-to-br from-white/50 to-white/80 [text-shadow:1px_2px_1px_rgba(0,0,0,0.7)] invert mix-blend-luminosity bg-clip-text text-transparent">
                 {userPhone}
               </div>
             </div>
-            <div className="w-32 h-32 bg-white rounded-lg flex items-center justify-center shadow-lg p-0.5">
+            <div className="w-28 h-28 relative rounded-lg flex items-center justify-center p-0.5">
+              <div className='absolute top-0 left-0 w-24 h-24 m-2 rounded-lg  text-gray-800 shadow-lg border border-white/20 bg-white'></div>
               {qrCode ? (
                 <img
                   src={`data:image/png;base64,${qrCode}`}
                   alt="User QR Code"
-                  className="h-31 w-31 rounded"
+                  className="h-31 w-31 rounded mix-blend-multiply brightness-95 contrast-150 relative"
                 />
               ) : (
-                <QrCode className="h-28 w-28 text-black" />
+                <QrCode className="h-28 w-28 text-black relative" />
               )}
             </div>
           </div>

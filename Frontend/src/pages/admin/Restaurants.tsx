@@ -62,6 +62,7 @@ const AdminRestaurants = () => {
     password: "",
     confirmPassword: "",
     city: "",
+    website: ""
   });
 
   const fetchRestaurants = async () => {
@@ -115,6 +116,7 @@ const AdminRestaurants = () => {
       password: "",
       confirmPassword: "",
       city: "",
+      website: ""
     });
     setOpenDialog(true);
   };
@@ -129,6 +131,7 @@ const AdminRestaurants = () => {
       password: "",
       confirmPassword: "",
       city: restaurant.city || "",
+      website: restaurant.website || ""
     });
     setOpenDialog(true);
   };
@@ -425,6 +428,19 @@ const AdminRestaurants = () => {
                   onChange={handleInputChange}
                   required
                   placeholder="Enter city name"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="website" className="text-right">
+                  Website
+                </Label>
+                <Input
+                  id="website"
+                  name="website"
+                  className="col-span-3"
+                  value={formData.website}
+                  onChange={handleInputChange}
+                  placeholder="Enter website url"
                 />
               </div>
               <div className="grid grid-cols-4 items-center gap-4">

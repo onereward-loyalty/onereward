@@ -26,6 +26,7 @@ interface Restaurant {
   _id: string;
   name: string;
   email: string;
+  website?: string;
   status: string;
   join_date: string;
   city?: string;

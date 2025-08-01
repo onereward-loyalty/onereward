@@ -34,6 +34,7 @@ interface Restaurant {
   _id: string;
   name: string;
   email: string;
+  website?: string;
 }
 
 const RestaurantMenu = () => {
@@ -135,9 +136,20 @@ const RestaurantMenu = () => {
             <ArrowLeft className="h-5 w-5" />
           </Link>
         </Button>
-        <div>
-          <h2 className="text-2xl font-bold text-primary">{restaurant.name}</h2>
-          <p className="text-sm text-muted-foreground">Menu & Offerings</p>
+        <div className="flex items-center gap-2 md:gap-10 justify-between">
+          <div>
+            <h2 className="text-2xl font-bold text-primary">{restaurant.name}</h2>
+            <p className="text-sm text-muted-foreground">Menu & Offerings</p>
+          </div>
+          <Button
+            key="visit_link"
+            variant={"default"}
+            size="sm"
+            className={`whitespace-nowrap ${restaurant.website ? "" : "hidden"}`}
+          >
+            <Link to={restaurant.website ?? ""}>
+              Visit Website</Link>
+          </Button>
         </div>
       </div>
 
