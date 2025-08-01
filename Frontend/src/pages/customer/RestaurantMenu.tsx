@@ -128,6 +128,30 @@ const RestaurantMenu = () => {
   }
 
   return (
+    // <div className="space-y-6 pb-16 animate-fade-in">
+    //   {/* Header */}
+    //   <div className="flex items-center gap-3">
+    //     <Button variant="ghost" size="icon" asChild className="h-10 w-10">
+    //       <Link to="/customer/restaurants">
+    //         <ArrowLeft className="h-5 w-5" />
+    //       </Link>
+    //     </Button>
+    //     <div className="flex items-center gap-2 md:gap-10 justify-between">
+    //       <div>
+    //         <h2 className="text-2xl font-bold text-primary">{restaurant.name}</h2>
+    //         <p className="text-sm text-muted-foreground">Menu & Offerings</p>
+    //       </div>
+    //       <Button
+    //         key="visit_link"
+    //         variant={"default"}
+    //         size="sm"
+    //         className={`whitespace-nowrap ${restaurant.website? "" : "hidden"}`}
+    //       >
+    //         <Link to={restaurant.website ?? ""}>
+    //           Visit Website</Link>
+    //       </Button>
+    //     </div>
+    //   </div>
     <div className="space-y-6 pb-16 animate-fade-in">
       {/* Header */}
       <div className="flex items-center gap-3">
@@ -136,22 +160,37 @@ const RestaurantMenu = () => {
             <ArrowLeft className="h-5 w-5" />
           </Link>
         </Button>
-        <div className="flex items-center gap-2 md:gap-10 justify-between">
+        <div className="flex items-center gap-2 md:gap-10 justify-between w-full">
           <div>
-            <h2 className="text-2xl font-bold text-primary">{restaurant.name}</h2>
+            <h2 className="text-2xl font-bold text-primary">
+              {restaurant.name}
+            </h2>
             <p className="text-sm text-muted-foreground">Menu & Offerings</p>
           </div>
-          <Button
-            key="visit_link"
-            variant={"default"}
-            size="sm"
-            className={`whitespace-nowrap ${restaurant.website? "" : "hidden"}`}
-          >
-            <Link to={restaurant.website ?? ""}>
-              Visit Website</Link>
-          </Button>
+
+          {restaurant.website && (
+            <Button
+              key="visit_link"
+              variant="default"
+              size="sm"
+              className="whitespace-nowrap"
+              asChild
+            >
+              <a
+                href={restaurant.website}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit Website
+              </a>
+            </Button>
+          )}
         </div>
       </div>
+    </div>
+
+
+    // New code end
 
       {menu.length === 0 ? (
         <div className="text-center py-16">
