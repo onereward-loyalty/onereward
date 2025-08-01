@@ -141,7 +141,7 @@ const RestaurantMenu = () => {
             <h2 className="text-2xl font-bold text-primary">{restaurant.name}</h2>
             <p className="text-sm text-muted-foreground">Menu & Offerings</p>
           </div>
-          <Button
+{/*           <Button
             key="visit_link"
             variant={"default"}
             size="sm"
@@ -149,7 +149,26 @@ const RestaurantMenu = () => {
           >
             <Link to={restaurant.website ?? ""}>
               Visit Website</Link>
-          </Button>
+          </Button> */}
+
+          {restaurant.website && (
+  <Button
+    key="visit_link"
+    variant="default"
+    size="sm"
+    className="whitespace-nowrap"
+    asChild
+  >
+    <a
+      href={restaurant.website}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Visit Website
+    </a>
+  </Button>
+)}
+
         </div>
       </div>
 
