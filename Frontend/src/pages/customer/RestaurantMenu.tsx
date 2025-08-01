@@ -145,7 +145,7 @@ const RestaurantMenu = () => {
             key="visit_link"
             variant={"default"}
             size="sm"
-            className={`whitespace-nowrap ${restaurant.website ? "" : "hidden"}`}
+            className={`whitespace-nowrap ${restaurant.website? "" : "hidden"}`}
           >
             <Link to={restaurant.website ?? ""}>
               Visit Website</Link>
