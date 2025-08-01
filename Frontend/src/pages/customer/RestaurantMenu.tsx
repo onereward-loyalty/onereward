@@ -152,10 +152,9 @@ const RestaurantMenu = () => {
           </Button>
         </div>
       </div>
+)}
 
 
-
-{/*     // New code end */}
 
       {menu.length === 0 ? (
         <div className="text-center py-16">
