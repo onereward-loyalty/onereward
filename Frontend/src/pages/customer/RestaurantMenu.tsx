@@ -151,7 +151,7 @@ const RestaurantMenu = () => {
               Visit Website</Link>
           </Button> */}
 
-          {restaurant.website && (
+          {restaurant.website?.trim() && (
   <Button
     key="visit_link"
     variant="default"
@@ -160,7 +160,11 @@ const RestaurantMenu = () => {
     asChild
   >
     <a
-      href={restaurant.website}
+      href={
+        restaurant.website.startsWith("http")
+          ? restaurant.website
+          : `https://${restaurant.website}`
+      }
       target="_blank"
       rel="noopener noreferrer"
     >
