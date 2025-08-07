@@ -136,15 +136,9 @@ const RestaurantMenu = () => {
             <ArrowLeft className="h-5 w-5" />
           </Link>
         </Button>
-{/*         <div>
-          <h2 className="text-2xl font-bold text-primary">{restaurant.name}</h2>
-          <p className="text-sm text-muted-foreground">Menu & Offerings</p>
-        </div> */}
         <div>
   <h2 className="text-2xl font-bold text-primary">{restaurant.name}</h2>
   <p className="text-sm text-muted-foreground">Menu & Offerings</p>
-
-  <p className="text-xs text-red-500">Website: {restaurant.website}</p> {/* DEBUG ONLY */}
 
   {restaurant.website && (
     <a
@@ -159,8 +153,7 @@ const RestaurantMenu = () => {
     </a>
   )}
 </div>
-
-      </div>
+ </div>
        
 
 
