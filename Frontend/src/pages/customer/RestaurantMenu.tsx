@@ -130,7 +130,7 @@ const RestaurantMenu = () => {
   return (
     <div className="space-y-6 pb-16 animate-fade-in">
       {/* Header */}
-{/*       <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3">
         <Button variant="ghost" size="icon" asChild className="h-10 w-10">
           <Link to="/customer/restaurants">
             <ArrowLeft className="h-5 w-5" />
@@ -140,25 +140,8 @@ const RestaurantMenu = () => {
           <h2 className="text-2xl font-bold text-primary">{restaurant.name}</h2>
           <p className="text-sm text-muted-foreground">Menu & Offerings</p>
         </div>
-      </div> */}
-        <div className="flex items-center gap-3">
-  <Button variant="ghost" size="icon" asChild className="h-10 w-10">
-    <Link to="/customer/restaurants">
-      <ArrowLeft className="h-5 w-5" />
-    </Link>
-  </Button>
-  <div>
-    <h2 className="text-2xl font-bold text-primary">{restaurant.name}</h2>
-    <p className="text-sm text-muted-foreground">Menu & Offerings</p>
-
-    {/* Website Button */}
-    {restaurant.website && (
-      <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">
-  <Button variant="outline">Visit Website</Button>
-</a>
-    )}
-  </div>
-</div>
+      </div>
+       
 
 
       {menu.length === 0 ? (
