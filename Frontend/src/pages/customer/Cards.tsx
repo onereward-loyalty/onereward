@@ -128,9 +128,9 @@ const CustomerCards = () => {
     <div className="space-y-6 pb-16 animate-fade-in">
       <div>
         <h2 className="text-xl font-semibold mb-1 text-blue-600">My Loyalty Cards</h2>
-        <p className="text-sm text-gray-600 mb-4">
+{/*         <p className="text-sm text-gray-600 mb-4">
           View and manage your points across all restaurants
-        </p>
+        </p> */}
         <div className="flex gap-4 mb-6">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-500" />
