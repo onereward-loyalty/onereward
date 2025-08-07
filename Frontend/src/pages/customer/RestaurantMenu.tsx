@@ -130,7 +130,7 @@ const RestaurantMenu = () => {
   return (
     <div className="space-y-6 pb-16 animate-fade-in">
       {/* Header */}
-      <div className="flex items-center gap-3">
+{/*       <div className="flex items-center gap-3">
         <Button variant="ghost" size="icon" asChild className="h-10 w-10">
           <Link to="/customer/restaurants">
             <ArrowLeft className="h-5 w-5" />
@@ -153,7 +153,40 @@ const RestaurantMenu = () => {
     </a>
   )}
 </div>
- </div>
+ </div> */}
+
+        <div className="flex flex-col gap-3">
+  {/* Back Button */}
+  <div className="flex items-center gap-3">
+    <Button variant="ghost" size="icon" asChild className="h-10 w-10">
+      <Link to="/customer/restaurants">
+        <ArrowLeft className="h-5 w-5" />
+      </Link>
+    </Button>
+  </div>
+
+  {/* Restaurant Header Section */}
+  <div className="flex items-center gap-2 md:gap-10 justify-between">
+    <div>
+      <h2 className="text-2xl font-bold text-primary">{restaurant.name}</h2>
+      <p className="text-sm text-muted-foreground">Menu & Offerings</p>
+    </div>
+
+    {/* Visit Website Button (only if website exists) */}
+    {restaurant.website && (
+      <Button
+        key="visit_link"
+        variant="default"
+        size="sm"
+        className="whitespace-nowrap"
+        asChild
+      >
+        <Link to={restaurant.website}>Visit Website</Link>
+      </Button>
+    )}
+  </div>
+</div>
+
        
 
 
