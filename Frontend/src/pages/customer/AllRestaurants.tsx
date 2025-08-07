@@ -91,9 +91,9 @@ const AllRestaurants = () => {
     <div className="space-y-6 pb-16 animate-fade-in">
       <div>
         <h2 className="text-2xl font-bold mb-2 text-primary">All Restaurants</h2>
-        <p className="text-sm text-muted-foreground mb-6">
+{/*         <p className="text-sm text-muted-foreground mb-6">
           Discover restaurants and explore their menus
-        </p>
+        </p> */}
         
         {/* Search Bar */}
         <div className="relative mb-8">
