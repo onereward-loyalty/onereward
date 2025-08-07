@@ -108,6 +108,7 @@ app.get('/api/restaurants/:id', async (req, res) => {
       _id: restaurant._id,
       name: restaurant.name,
       email: restaurant.email,
+      website: restaurant.website,
       category: "General", // Add a real category if available
       logo: `https://api.dicebear.com/7.x/initials/svg?seed=${restaurant.name}`, // sample avatar
       points: 600, // replace with actual points if stored elsewhere
