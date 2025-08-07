@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Search, Store, MapPin } from "lucide-react";
 import axios from "axios";
 import { API_BASE_URL } from "@/config/api";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface Restaurant {
   _id: string;
@@ -15,6 +16,7 @@ interface Restaurant {
   join_date: string;
   cardImage?: string;
   logo?: string;
+  city: string;
 }
 
 const AllRestaurants = () => {
@@ -22,6 +24,8 @@ const AllRestaurants = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState<Restaurant[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCity, setSelectedCity] = useState<string>("all");
+  const [cities, setCities] = useState<string[]>([]);
 
   // Default restaurant images for variety
   const defaultImages = [
@@ -32,21 +36,34 @@ const AllRestaurants = () => {
     "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=400&auto=format&fit=crop&q=60",
   ];
 
+  const extractCitiesFromRestaurants = (restaurantData: Restaurant[]) => {
+    const uniqueCities = [...new Set(restaurantData.map(r => r.city).filter(Boolean))];
+    console.log("Extracted cities from restaurants:", uniqueCities);
+    console.log("Restaurant data sample:", restaurantData.slice(0, 3));
+    setCities(uniqueCities);
+  };
+
   useEffect(() => {
     fetchRestaurants();
   }, []);
 
   useEffect(() => {
-    // Filter restaurants based on search query
-    if (searchQuery.trim() === "") {
-      setFilteredRestaurants(restaurants);
-    } else {
-      const filtered = restaurants.filter((restaurant) =>
-        restaurant.name.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-      setFilteredRestaurants(filtered);
+    if (restaurants.length > 0) {
+      extractCitiesFromRestaurants(restaurants);
     }
-  }, [searchQuery, restaurants]);
+  }, [restaurants]);
+
+  useEffect(() => {
+    // Filter restaurants based on search query
+
+    const filtered = restaurants.filter((r) => {
+      const matchesSearch = r.name.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesCity = selectedCity === "all" || r.city === selectedCity;
+      return matchesSearch && matchesCity;
+    });
+
+    setFilteredRestaurants(filtered);
+  }, [searchQuery, restaurants, selectedCity]);
 
   const fetchRestaurants = async () => {
     try {
@@ -96,14 +113,37 @@ const AllRestaurants = () => {
         </p> */}
         
         {/* Search Bar */}
-        <div className="relative mb-8">
-          <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-          <Input
-            placeholder="Search restaurants..."
-            className="pl-10 h-12 rounded-xl border-2 focus:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-md"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
+        <div className="flex gap-4 mb-8 relative">
+          <div className="relative flex-1">
+            <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-500" />
+            <Input
+              placeholder="Search restaurants..."
+              className="pl-9"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
+          <div className="w-48">
+            <Select value={selectedCity} onValueChange={setSelectedCity}>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Filter by city" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Cities</SelectItem>
+                {cities.length > 0 ? (
+                  cities.map((city) => (
+                    <SelectItem key={city} value={city}>
+                      {city}
+                    </SelectItem>
+                  ))
+                ) : (
+                  <SelectItem value="no-cities" disabled>
+                    No cities available
+                  </SelectItem>
+                )}
+              </SelectContent>
+            </Select>
+          </div>
         </div>
       </div>
 
