@@ -136,10 +136,30 @@ const RestaurantMenu = () => {
             <ArrowLeft className="h-5 w-5" />
           </Link>
         </Button>
-        <div>
+{/*         <div>
           <h2 className="text-2xl font-bold text-primary">{restaurant.name}</h2>
           <p className="text-sm text-muted-foreground">Menu & Offerings</p>
-        </div>
+        </div> */}
+        <div>
+  <h2 className="text-2xl font-bold text-primary">{restaurant.name}</h2>
+  <p className="text-sm text-muted-foreground">Menu & Offerings</p>
+
+  <p className="text-xs text-red-500">Website: {restaurant.website}</p> {/* DEBUG ONLY */}
+
+  {restaurant.website && (
+    <a
+      href={restaurant.website}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block mt-2"
+    >
+      <Button variant="outline" size="sm">
+        Visit Website
+      </Button>
+    </a>
+  )}
+</div>
+
       </div>
        
 
