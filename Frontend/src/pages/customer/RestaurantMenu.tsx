@@ -141,31 +141,24 @@ const RestaurantMenu = () => {
           <p className="text-sm text-muted-foreground">Menu & Offerings</p>
         </div>
       </div> */}
-        <div className="flex items-center gap-3">
-  <Button variant="ghost" size="icon" asChild className="h-10 w-10">
-    <Link to="/customer/restaurants">
-      <ArrowLeft className="h-5 w-5" />
-    </Link>
-  </Button>
-  <div>
-    <h2 className="text-2xl font-bold text-primary">{restaurant.name}</h2>
-    <p className="text-sm text-muted-foreground">Menu & Offerings</p>
+        <div>
+  <h2 className="text-2xl font-bold text-primary">{restaurant.name}</h2>
+  <p className="text-sm text-muted-foreground">Menu & Offerings</p>
 
-    {/* Website Button */}
-    {restaurant.website && (
-      <a
-        href={restaurant.website}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block mt-2"
-      >
-        <Button variant="outline" size="sm">
-          Visit Website
-        </Button>
-      </a>
-    )}
-  </div>
+  {restaurant.website && (
+    <a
+      href={restaurant.website}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block mt-2"
+    >
+      <Button variant="outline" size="sm">
+        Visit Website
+      </Button>
+    </a>
+  )}
 </div>
+
 
       {menu.length === 0 ? (
         <div className="text-center py-16">
